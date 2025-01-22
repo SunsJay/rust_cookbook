@@ -1,7 +1,9 @@
 use rand::Rng; // Import the Rng trait for random number generation
 use rand_distr::{Normal, Distribution}; // Import necessary traits for normal distribution
-use rand::thread_rng; // Import thread_rng for random number generation
+use rand::thread_rng;
+use algorithms::custom::Point;
 
+// Import thread_rng for random number generation
 fn main() {
     let mut rng = thread_rng(); // Create a random number generator
 
@@ -21,4 +23,11 @@ fn main() {
     let normal = Normal::new(2.0, 3.0).unwrap();
     let v = normal.sample(&mut rng); // Sample from the normal distribution
     println!("Normal distribution sample: {:?}", v);
+
+    let mut rng = thread_rng();
+    let rand_tuple = rng.gen::<(u8, u8, u8)>();
+    let rand_point: Point = rng.gen();
+
+    println!("rand_tuple: {:?}", rand_tuple);
+    println!("rand_point: {:?}", rand_point);
 }
